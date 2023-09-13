@@ -11,6 +11,34 @@ Resize images in various formats:
 
  Formats generated: jpeg, webp, avif
 ```
+Using different sizes of images for your HTML page is important for several reasons:
+
+**Responsive Design**: In web development, it's essential to create responsive websites 
+that adapt to various screen sizes and devices. By generating different image sizes, you 
+can serve appropriately sized images to different devices. This ensures that your web 
+pages load quickly and look good on both desktop computers and mobile devices.
+
+**Optimized Loading**: Large images can significantly impact page loading times, 
+especially on slow internet connections or mobile networks. By providing smaller image 
+sizes for smaller screens, you reduce the amount of data that needs to be downloaded, 
+leading to faster page load times.
+
+**Bandwidth Efficiency**: Generating multiple image sizes allows you to serve images that 
+are optimized for different screen resolutions and orientations. This reduces the amount 
+of unnecessary data transfer and helps conserve bandwidth, which can be particularly 
+important for users on limited data plans.
+
+**Improved User Experience**: Faster-loading pages and optimized images contribute to a 
+better user experience. Users are more likely to stay on your site and engage with its 
+content if they don't have to wait for large images to load.
+
+
+Overall, using an image generator to produce different image sizes for your HTML page is 
+a best practice in web development. It helps you create a more efficient, user-friendly, 
+and responsive website that caters to a wide range of devices and screen sizes.
+
+**Using an image generator to create different sizes is important because it eliminates the 
+need to manually edit multiple images.**
 
 Using different image file formats like JPEG, WebP, and AVIF for the web is important 
 because each format has its own set of advantages and disadvantages, and the choice of 
@@ -44,31 +72,19 @@ these different formats:
    - However, support for AVIF is still evolving, and not all web browsers may fully 
      support it at the time of your development.
 
-When deciding which format to use, consider the following factors:
+When deciding which format to use, consider the factor of Browser Support: Check the 
+current browser support for each format. WebP had good support in most modern browsers, 
+while AVIF was gaining traction. However, it's essential to check for the latest 
+browser support statistics.
 
-1. Browser Support: Check the current browser support for each format. As of my last 
-   update in September 2021, WebP had good support in most modern browsers, while AVIF 
-   was gaining traction. However, it's essential to check for the latest browser support 
-   statistics.
-
-2. Content Type: Consider the type of content you are displaying. Photographs may work 
-   well with JPEG, while icons and graphics may benefit from WebP or AVIF.
-
-3. Compression Needs: Evaluate the level of compression required. If you need the smallest 
-   file size possible without significant quality loss, WebP and AVIF are strong choices.
-
-4. Performance Goals: If improving website performance and reducing loading times are 
-   essential, consider using formats like WebP or AVIF, which typically result in smaller 
-   file sizes compared to JPEG.
-
-5. Fallbacks: Provide fallbacks for older browsers that do not support newer image 
-   formats. You can use the `<picture>` element or feature detection to serve appropriate 
-   formats to different browsers.
+Provide a fallbacks: Provide fallbacks for older browsers that do not support newer image 
+formats. You can use the `<picture>` element or feature detection to serve appropriate 
+formats to different browsers.
 
 In summary, using a combination of image formats like JPEG, WebP, and AVIF allows you to 
 optimize your web images for different scenarios, providing a better user experience and 
 improved performance across a wide range of devices and browsers. Keep in mind that the 
-landscape of web technologies may have evolved since my last update, so it's essential to 
+image of web technologies may have evolved since my last update, so it's essential to 
 stay up-to-date with the latest best practices and browser support information.
 
 ## Installation
@@ -105,3 +121,76 @@ Use the newly generated images in your html source-set:
   <img src="image.jpg" alt="Description">
 </picture>
 ```
+
+In CSS background-tags you can use different formats and sizes this way:
+```css
+@media screen and (max-width: 640px) {
+    .background {
+        background-image: -webkit-image-set(
+                url("./640/image.avif") 1x,
+                url("./640/image.webp") 1x,
+                url("./640/image.jpg") 1x,
+                url("./1280/image.avif") 2x,
+                url("./1280/image.webp") 2x,
+                url("./1280/image.jpg") 2x
+        );
+        background-image: image-set(
+                url("./640/image.avif") type("image/avif") 1x,
+                url("./640/image.webp") type("image/webp") 1x,
+                url("./640/image.jpg") type("image/jpeg") 1x,
+                url("./1280/image.avif") type("image/avif") 2x,
+                url("./1280/image.webp") type("image/webp") 2x,
+                url("./1280/image.jpg") type("image/jpeg") 2x
+        );
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .background {
+        background-image: -webkit-image-set(
+                url("./1920/image.avif") 1x,
+                url("./1920/image.webp") 1x,
+                url("./1920/image.jpg") 1x,
+                url("./3840/image.avif") 2x,
+                url("./3840/image.webp") 2x,
+                url("./3840/image.jpg") 2x
+        );
+        background-image: image-set(
+                url("./1920/image.avif") type("image/avif") 1x,
+                url("./1920/image.webp") type("image/webp") 1x,
+                url("./1920/image.jpg") type("image/jpeg") 1x,
+                url("./3840/image.avif") type("image/avif") 2x,
+                url("./3840/image.webp") type("image/webp") 2x,
+                url("./3840/image.jpg") type("image/jpeg") 2x
+        );
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .background {
+        background-image: -webkit-image-set(
+                url("./3840/image.avif") 1x,
+                url("./3840/image.webp") 1x,
+                url("./3840/image.jpg") 1x,
+                url("./3840/image.avif") 2x,
+                url("./3840/image.webp") 2x,
+                url("./3840/image.jpg") 2x
+        );
+        background-image: image-set(
+                url("./3840/image.avif") type("image/avif"),
+                url("./3840/image.webp") type("image/webp"),
+                url("./3840/image.jpg") type("image/jpeg")
+        );
+    }
+}
+```
+
+## Contribution
+
+In the interest of fostering an open and welcoming environment, we as contributors and 
+maintainers pledge to making participation in our project and our community a 
+harassment-free experience for everyone, regardless of age, body size, disability, 
+ethnicity, gender identity and expression, level of experience, nationality, personal 
+appearance, race, religion, or sexual identity and orientation.
+
+
