@@ -31,4 +31,4 @@ WORKDIR /
 # Add the entrypoint
 ADD entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
