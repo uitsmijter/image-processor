@@ -34,6 +34,8 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    needs:
+      - build
     steps:
       - name: Build images
         run: IMAGE=ghcr.io/${{ github.repository }}:latest docker-compose -f tests/docker-compose.yml up imagetool
