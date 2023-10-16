@@ -29,7 +29,7 @@ function resize {
 	folder=${1}
 	target=${2}
 	size=${3}
-	
+
 	mkdir -p ${target}/${size}
 	for originalImage in "${folder}"/*.jpg; do
 		baseName=$(basename ${originalImage%.*})
@@ -41,7 +41,7 @@ function resize {
 				-vf scale=${size}:-1 \
 				-threads ${CPUCOUNT} \
 				${targetName}.jpg \
-				2> /dev/null
+				1> /dev/null
 		else
 			echo "skip. Already present: ${targetName}.jpg"
 		fi
@@ -52,7 +52,7 @@ function resize {
 				-vf scale=${size}:-1 \
 				-threads ${CPUCOUNT} \
 				${targetName}.webp \
-				2> /dev/null
+				1> /dev/null
 		else
 			echo "skip. Already present: ${targetName}.webp"
 		fi
