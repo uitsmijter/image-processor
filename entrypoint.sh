@@ -41,7 +41,7 @@ function resize {
 				-vf scale=${size}:-1 \
 				-threads ${CPUCOUNT} \
 				${targetName}.jpg \
-				1> /dev/null
+				2> /dev/null
 		else
 			echo "skip. Already present: ${targetName}.jpg"
 		fi
@@ -52,7 +52,7 @@ function resize {
 				-vf scale=${size}:-1 \
 				-threads ${CPUCOUNT} \
 				${targetName}.webp \
-				1> /dev/null
+				2> /dev/null
 		else
 			echo "skip. Already present: ${targetName}.webp"
 		fi

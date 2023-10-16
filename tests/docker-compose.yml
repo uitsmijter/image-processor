@@ -1,0 +1,16 @@
+version: '3.7'
+
+
+services:
+  imagetool:
+    image: ${IMAGE}
+    volumes:
+      - ./source:/build/source
+      - ./target:/build/target
+    command:
+      - -i
+      - /build/source
+      - -o
+      - /build/target
+      - -s
+      - "1280 640"
