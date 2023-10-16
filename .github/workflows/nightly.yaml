@@ -37,6 +37,7 @@ jobs:
     needs:
       - build
     steps:
+      - uses: actions/checkout@v3
       - name: Build images
         run: IMAGE=ghcr.io/${{ github.repository }}:latest docker-compose -f tests/docker-compose.yml up imagetool
       - name: Count folders
