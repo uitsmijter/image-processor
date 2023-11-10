@@ -1,5 +1,5 @@
 # Image Processor
-Resizes images and generate different formats from original images
+Resize images and generate different formats from original images.
 
 ## Overview
 ```
@@ -34,7 +34,7 @@ content if they don't have to wait for large images to load.
 
 
 Overall, using an image generator to produce different image sizes for your HTML page is 
-a best practice in web development. It helps you create a more efficient, user-friendly, 
+a best practice in web development. It helps you create a more efficient, user-friendly 
 and responsive website that caters to a wide range of devices and screen sizes.
 
 **Using an image generator to create different sizes is important because it eliminates the 
@@ -96,12 +96,12 @@ docker pull ghcr.io/uitsmijter/image-processor:latest
 
 ## Usage
 
-You need two directories, one with the original images the other (empty) directory 
+You need two directories, one with the original images. The other (empty) directory 
 is for the generated images.
 
-For example the original images are located in `./graphics` and the generated once should 
+For example the original images are located in `./graphics` and the generated ones should 
 be placed in `./public`. From the original images you want to have 4 different sizes with 
-a width of 3840px, 1920px, 1280px and 640px
+a width of 3840px, 1920px, 1280px and 640px.
 
 ```shell
 docker run \
@@ -112,7 +112,7 @@ docker run \
   ghcr.io/uitsmijter/image-processor:latest -i /processor/source -o /processor/target -s "3840 1920 1280 640"
 ```
 
-Use the newly generated images in your html source-set: 
+Use the newly generated images in your HTML source-set: 
 ```html
 <picture>
   <source srcset="./3840/image.avif 3840w, ./1920/image.avif 1920w, ./1280/image.avif 1280w, ./640/image.avif 640w" type="image/avif">
@@ -185,6 +185,9 @@ In CSS background-tags you can use different formats and sizes this way:
 }
 ```
 
+## Support
+For help with the image-processor please visit our [discourse](https://discourse.uitsmijter.io) server.
+
 ## Contribution
 
 In the interest of fostering an open and welcoming environment, we as contributors and 
@@ -193,4 +196,4 @@ harassment-free experience for everyone, regardless of age, body size, disabilit
 ethnicity, gender identity and expression, level of experience, nationality, personal 
 appearance, race, religion, or sexual identity and orientation.
 
-
+Please read our [Code of Conduct](https://docs.uitsmijter.io/contribution/codeofconduct/)
